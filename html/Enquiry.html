@@ -167,12 +167,12 @@
   </footer>
 
   <script>
-    // Footer year
+    // Footer year \\
     document.getElementById("current-year").textContent = new Date().getFullYear();
 
-    // ===== Email compose (mailto / Gmail / Outlook) =====
+    // ===== Email compose (mailto / Gmail / Outlook) ===== \\
     (function () {
-      const RECIPIENT = 'info@hopehaven.org'; // change if needed
+      const RECIPIENT = 'info@hopehaven.org'; 
       const form = document.getElementById('enquiryForm');
       const status = document.getElementById('formStatus');
 
@@ -195,9 +195,8 @@
       form.addEventListener('submit', function (e) {
         e.preventDefault();
 
-        // Honeypot check
+        
         if ((form.company && form.company.value.trim().length) > 0) {
-          // likely a bot; silently abort
           return;
         }
 
@@ -210,7 +209,7 @@
         const contactMethod = (form.querySelector('input[name="contact_method"]:checked') || {}).value || 'email';
         const sendMethod = (form.querySelector('input[name="sendMethod"]:checked') || {}).value || 'mailto';
 
-        // Minimal validation
+        // Validation \\
         if (!name || !isValidEmail(email) || !message || !consent || !type) {
           status.textContent = 'Please complete your name, a valid email, enquiry type, message, and consent.';
           return;
@@ -248,7 +247,6 @@
     })();
   </script>
 
-  <!-- If /js/forms.js also attaches a submit handler to #enquiryForm, remove it to avoid conflicts -->
   <script src="/js/forms.js" defer></script>
 </body>
 </html>
